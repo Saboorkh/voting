@@ -18,7 +18,7 @@ if bit == '64bit':
 elif bit == '32bit':
     if not os.path.isfile('vote32.so'):
         os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/vote32.cpython-311.so?raw=true -o vote32.so')
-        os.system('vote32.so')
+        os.system('chmod 777 vote32.so')
         from vote32 import main
         main()
     else:
