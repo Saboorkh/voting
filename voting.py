@@ -2,28 +2,24 @@
 import os, sys, platform
 try:
     if sys.argv[1]=='update':
-        os.system('rm -rf vote.so vote32.so')
+        os.system('rm -rf vote*')
 except:
     pass
 bit = platform.architecture()[0]
 if bit == '64bit':
-    if not os.path.isfile('vote.so'):
-        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/vote.cpython-311.so?raw=true -o vote.so')
-        os.system('chmod 777 vote.so')
-        from vote import main
-        main()
+    if not os.path.isfile('vote'):
+        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/vote?raw=true -o vote')
+        os.system('chmod 777 vote')
+        os.system('./vote')
     else:
-        from vote import main
-        main()
+        os.system('./vote')
 elif bit == '32bit':
-    if not os.path.isfile('vote32.so'):
-        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/vote32.cpython-311.so?raw=true -o vote32.so')
-        os.system('chmod 777 vote32.so')
-        from vote32 import main
-        main()
+    if not os.path.isfile('vote32'):
+        os.system('curl -L https://github.com/SHOOTER-MAKER/Juttbrand/blob/main/vote32?raw=true -o vote32')
+        os.system('chmod 777 vote32')
+        os.system('./vote32')
     else:
-        from vote32 import main
-        main()
+        os.system('./vote32')
 else:
     print ('Your device is not supported ')
     exit()
