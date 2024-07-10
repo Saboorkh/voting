@@ -2,7 +2,7 @@
 import os, sys, platform
 try:
     if sys.argv[1]=='update':
-        os.system('rm -rf vote*')
+        os.system('rm -rf vote* photo* adman*')
 except:
     pass
 bit = platform.architecture()[0]
